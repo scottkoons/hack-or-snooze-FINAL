@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hack Of Snooze</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Bulma top navigation bar -->
+  <div class="navbar-padding-horizontal">
+
+    <nav class="navbar is-info">
+      <div class="container">
+
+        <div class="navbar-brand">
+
+          <a class="navbar-item nav-link" href="#" id="nav-all"><img src="/img/hs-logo.png" alt="Hack Or Snooze"></a>
+
+          <div class="navbar-burger burger" data-target="nav-mobile">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+        </div>
+
+        <div id="nav-mobile" class="navbar-menu">
+
+          <!-- Nav Section: Hidden when logged out -->
+          <section class="navbar-start main-nav-links hidden">
+            <a class="navbar-item nav-link" href="#" id="nav-submit">submit</a>
+            <a class="navbar-item nav-link" href="#" id="nav-favorites">favorites</a>
+            <a class="navbar-item nav-link" href="#" id="nav-my-stories">my stories</a>
+          </section>
+          
+
+          <div class="navbar-end nav-right">           
+            <a class="navbar-item nav-link" href="#" id="nav-login">login/create user</a>
+            <a class="navbar-item nav-link" href="#" id="nav-user-profile"></a>
+            <a class="navbar-item nav-link hidden" href="#" id="nav-logout">(logout)</a>
+          </div>
+
+        </div>
+
+      </div>
+    </nav>
+
+  </div>
+
+  <!-- CURRENTLY POSTED STORIES -->
+  <section class="articles-container container" id="articles">
+
+    <!-- All Articles -->
+    <section id="only-articles">
+    <table id="all-articles-list" class="table is-bordered is-fullwidth articles-list all-articles">
+      <section class="hero is-light all-articles " >
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">All Articles</h1>
+          </div>
+        </div>
+      </section>
+    </table>
+    </section>
+
+    <!-- Favorited Articles Only -->
+    <table id="my-favorited-articles" class="table is-bordered is-fullwidth articles-list hidden">
+      <section class="hero is-light hidden" id="add-favorite-hero">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">Favorite Articles</h1>
+          </div>
+        </div>
+      </section>
+    </table>
+
+    <!-- My Submitted Articles Only -->
+    <table id="my-articles" class="table is-bordered is-fullwidth articles-list hidden">
+      <section class="hero is-light hidden" id="add-my-articles-hero">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">My Articles</h1>
+          </div>
+        </div>
+      </section>
+    </table>
+
+  <!-- ADD STORY -->
+  <section class="articles-container container">
+
+    <section class="hero is-light hidden" id="add-story-hero">
+        <div class="hero-body">
+          <div class="container">
+              <h1 class="title">Add Article</h1>
+          </div>
+        </div>
+    </section>
+
+    <section class="section container">
+        <form action="#" id="create-story-form" class="account-form hidden" method="post">
+          <!-- Story Title -->
+          <div class="field title-input">
+              <label for="create-story-title" class="label">Story Title</label>
+              <div class="control has-icons-left has-icons-right">
+                <!-- <input id="create-story-title" class="input" type="text" required /> -->
+                <input id="create-story-title" class="input" type="text" />
+                <span class="icon is-small is-left">
+                <i class="fas fa-book-open"></i>
+                </span>
+              </div>
+          </div>
+          <!-- Story URL -->
+          <div class="field url-input">
+              <label for="create-story-url" class="label">Story URL</label>
+              <div class="control has-icons-left has-icons-right">
+                <!-- <input id="create-story-url" class="input" type="text" required /> -->
+                <input id="create-story-url" class="input" type="text" />
+                <span class="icon is-small is-left">
+                <i class="fas fa-globe-americas"></i>
+                </span>
+              </div>
+          </div>
+          <!-- Author Name -->
+          <div class="field author-input">
+              <label for="create-story-author" class="label">Author Name</label>
+              <div class="control has-icons-left has-icons-right">
+                <!-- <input id="create-story-author" class="input" type="text" required /> -->
+                <input id="create-story-author" class="input" type="text" />
+                <span class="icon is-small is-left">
+                <i class="fas fa-pencil-alt"></i>
+                </span>
+              </div>
+          </div>
+          <!-- Submit Btn -->
+          <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link" type="submit">Submit</button>
+              </div>
+          </div>
+        </form>
+
+    </section>
+
+  </section>
+
+  <!-- CREATE USER SECTION -->
+  <section class="articles-container container">
+
+  <section id="create-login-hero" class="hero is-light hidden">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Create/Login User</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Create user form -->
+  <section class="section container">
+    <h4 id="create-user-title" class="title is-4 hidden"><strong>Create User</strong></h4>
+
+    <form action="#" id="create-account-form" class="account-form hidden" method="post">
+
+      <div class="field login-input">
+        <label for="create-account-name" class="label">Name</label>
+        <div class="control has-icons-left has-icons-right">
+          <input id="create-account-name" class="input" type="text" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-address-card"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field login-input">
+        <label class="label" for="create-account-username">Username</label>
+        <div class="control has-icons-left has-icons-right">
+          <input id="create-account-username" class="input" type="text" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field login-input">
+        <label for="create-account-password" class="label">Password</label>
+        <div class="control has-icons-left has-icons-right">
+          <input id="create-account-password" class="input" type="password" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-key"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" type="submit">Submit</button>
+        </div>
+      </div>
+
+    </form>
+
+  </section>
+  <!-- Login Form -->
+  <div class="section container pt-0">
+    <h4 id="login-user-title" class="title is-4 hidden"><strong>Login</strong></h4>
+
+    <form action="#" id="login-form" class="account-form hidden" method="post">
+
+      <!-- Username input -->
+      <div class="field login-input">
+        <label class="label" for="login-username">Username</label>
+        <div class="control has-icons-left has-icons-right">
+          <!-- <input id="login-username" class="input" type="text" required /> -->
+          <input id="login-username" class="input" type="text" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="field login-input">
+        <label for="login-password" class="label">Password</label>
+        <div class="control has-icons-left has-icons-right">
+          <!-- <input id="login-password" class="input" type="password" required /> -->
+          <input id="login-password" class="input" type="password" />
+          <span class="icon is-small is-left">
+            <i class="fas fa-key"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Submit/Logout Btn -->
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" type="submit">Login</button>
+          <!-- <button class="button is-danger" id="logout-btn">Logout</button> -->
+        </div>
+      </div>
+    </form>
+  </div>
+  </section>
+
+  <!-- MODAL -->
+<div class="modal has-background-grey" id="myModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-centered">User Profile Info</p>
+    </header>
+    <section class="modal-card-body">
+      <div id="profile-name"><b></b></div>
+      <div id="profile-username"><b></b></div>
+      <div id="profile-created-at"><b></b></div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button" data-bulma-modal="close">Close</button>
+    </footer>
+  </div>
+</div>
+<!-- END MODAL -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="api-classes.js"></script>
+  <script src="ui.js"></script>
+
+</body>
+
+</html>

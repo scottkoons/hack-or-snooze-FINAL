@@ -1,0 +1,37 @@
+
+ .hidden {
+  display: none;
+}
+
+.main-nav-links {
+  margin: 0 15px;
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  margin: 0 3px;
+}
+
+.nav-right {
+  margin-left: auto;
+}
+
+.star,
+.trash-can,
+.pencil {
+  font-size: 0.75rem;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.trash-can:hover {
+  color: crimson;
+}
+
+.pencil:hover {
+  color: darkblue;
+}
+
+.star:hover {
+  color: gold;
+}
